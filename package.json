@@ -14,8 +14,10 @@
     "type": "git",
     "url": "git+https://github.com/Alliance-Reunited/ShareX.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "sharex"
+  ],
+  "author": "DamienVesper",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Alliance-Reunited/ShareX/issues"
