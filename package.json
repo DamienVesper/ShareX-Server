@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "grunt build && tsc",
-    "prod": "node ./build/src/server/server.js --port 9722",
+    "prod": "node ./build/src/server/server.js --port 9777",
     "dist": "yarn build && yarn dev",
-    "dev": "node ./build/src/server/server.js --port 8080",
+    "dev": "node ./build/src/server/server.js",
     "dev:lint": "eslint . --fix --ext .ts"
   },
   "repository": {
