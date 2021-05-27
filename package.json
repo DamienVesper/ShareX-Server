@@ -1,0 +1,20 @@
+{
+  "name": "sharex",
+  "version": "1.0.0",
+  "description": "A ShareX server for Alliance Reunited.",
+  "main": "index.js",
+  "scripts": {
+    "build": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alliance-Reunited/ShareX.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alliance-Reunited/ShareX/issues"
+  },
+  "homepage": "https://github.com/Alliance-Reunited/ShareX#readme"
+}
