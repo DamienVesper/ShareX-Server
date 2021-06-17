@@ -62,14 +62,15 @@ app.set(`trust proxy`, true);
 app.set(`views`, path.resolve(__dirname, `views`));
 app.set(`view engine`, `ejs`);
 
-// Serve the static directory.
-app.use(express.static(path.resolve(__dirname, `../client`)));
+// Serve static files.
+app.use(`/assets`, express.static(path.resolve(__dirname, `../client/assets`)));
+app.use(`/`, express.static(path.resolve(__dirname, `../../media`)));
 
 // First, check if an IP is banned.
 app.use(`/`, banRouter);
 
 // Then, pass to the other routers.
-app.use(`/`, authRouter);
+app.use(`/auth`, authRouter);
 app.use(`/api`, apiRouter);
 app.use(`/`, indexRouter);
 
