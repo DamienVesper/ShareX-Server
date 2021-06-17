@@ -51,10 +51,10 @@
     "discord.js": "^12.5.3",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-ejs-layouts": "^2.5.0",
+    "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.2",
     "helmet": "^4.6.0",
-    "mongoose": "^5.12.11",
+    "mongoose": "^5.12.14",
     "xss-filters": "^1.2.7"
   }
 }
