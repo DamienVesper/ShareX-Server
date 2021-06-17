@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import User from './models/user.model';
 
 import log from './utils/log';
+import randomString from './utils/randomString';
 
 import passport from 'passport';
 import passportLocal from 'passport-local';

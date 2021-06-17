@@ -1,11 +1,10 @@
 import * as Mongoose from 'mongoose';
+import { UserDoc } from '../types/models';
 
-interface userType extends Mongoose.Document {
-}
 
 const userSchema = new Mongoose.Schema({
 });
 
-const User = Mongoose.model<userType>(`Sticker`, userSchema);
+const User = Mongoose.model<UserDoc>(`Sticker`, userSchema);
 
 export default User;
