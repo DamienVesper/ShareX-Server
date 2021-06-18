@@ -8,7 +8,7 @@ interface Configuration extends Webpack.Configuration {
 }
 
 const config: Configuration = {
-    entry: path.resolve(__dirname, `../src/client/index.tsx`),
+    entry: `./src/client/index.tsx`,
     module: {
         rules: [
             {
@@ -44,13 +44,13 @@ const config: Configuration = {
     },
 
     output: {
-        path: path.resolve(__dirname, `../dist`),
+        path: path.resolve(__dirname, `dist`),
         publicPath: `/dist`,
         filename: `bundle.min.js`
     },
 
     devServer: {
-        contentBase: path.resolve(__dirname, `../public`),
+        contentBase: path.resolve(__dirname, `public`),
         port: 3000,
         publicPath: `http://localhost:3000/dist`,
         hotOnly: true
