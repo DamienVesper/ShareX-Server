@@ -56,10 +56,7 @@ const config: Configuration = {
         hotOnly: true
     },
 
-    plugins: [
-        new Webpack.HotModuleReplacementPlugin(),
-        new Webpack.ProgressPlugin()
-    ]
+    plugins: [new Webpack.HotModuleReplacementPlugin()]
 };
 
 export default config;
