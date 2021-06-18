@@ -9,6 +9,7 @@
     "build:prod": "webpack --config ./deploy/webpack.dev.ts",
     "prod": "node ./build/src/server/server.js --port 9777",
     "dev": "node ./build/src/server/server.js",
+    "webpack": "webpack serve --config ./webpack/webpack.dev.ts",
     "dev:lint": "eslint . --fix --ext .ts"
   },
   "repository": {
@@ -51,6 +52,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.24.0",
+    "react-hot-loader": "^4.13.0",
     "style-loader": "^2.0.0",
     "ts-loader": "^9.2.3",
     "ts-node": "^10.0.0",
