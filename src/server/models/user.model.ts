@@ -1,6 +1,7 @@
 import * as Mongoose from 'mongoose';
 import { UserDoc } from '../types/models';
 
+
 const userSchema = new Mongoose.Schema({
 });
 
