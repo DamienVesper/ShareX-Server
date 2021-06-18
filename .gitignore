@@ -77,6 +77,3 @@ typings/
 
 # TypeScript transpilation
 build/
-
-# Client build
-dist/
