@@ -1,6 +1,6 @@
 {
   "name": "sharex",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A ShareX server for Alliance Reunited.",
   "main": "index.js",
   "scripts": {
