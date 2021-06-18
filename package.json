@@ -4,10 +4,9 @@
   "description": "A ShareX server for Alliance Reunited.",
   "main": "index.js",
   "scripts": {
-    "build:tsc": "tsc",
-    "build:dev": "webpack --config ./deploy/webpack.dev.ts",
-    "build:prod": "webpack --config ./deploy/webpack.dev.ts",
+    "build": "grunt build && tsc",
     "prod": "node ./build/src/server/server.js --port 9777",
+    "dist": "yarn build && yarn dev",
     "dev": "node ./build/src/server/server.js",
     "dev:lint": "eslint . --fix --ext .ts"
   },
@@ -35,8 +34,6 @@
     "@types/node": "^15.12.3",
     "@types/passport": "^1.0.6",
     "@types/passport-local": "^1.0.33",
-    "@types/react": "^17.0.11",
-    "@types/react-dom": "^17.0.8",
     "@types/webpack": "^5.28.0",
     "@types/webpack-dev-server": "^3.11.4",
     "@types/yargs": "^17.0.0",
@@ -72,8 +69,6 @@
     "express-session": "^1.17.2",
     "helmet": "^4.6.0",
     "mongoose": "^5.12.14",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "xss-filters": "^1.2.7"
   }
 }
