@@ -4,10 +4,12 @@
         "module": "commonjs",
 
         "moduleResolution": "node",
-        "outDir": "./build",
-
         "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true,
-    }
+        
+        "outDir": "./dist",
+        "resolveJsonModule": true
+    },
+
+    "include": ["./src/**/*"],
+    "exclude": ["node_modules"]
 }
