@@ -51,17 +51,6 @@ app.use(passport.session());
 app.use(ejsLayouts);
 app.use(helmet({ contentSecurityPolicy: false }));
 
-// NGINX Proxy.
-app.set(`trust proxy`, true);
-
-// Set view engine.
-app.set(`views`, path.resolve(__dirname, `views`));
-app.set(`view engine`, `ejs`);
-
-// Serve static files.
-app.use(`/assets`, express.static(path.resolve(__dirname, `../client/assets`)));
-app.use(`/`, express.static(path.resolve(__dirname, `../../media`)));
-
 // First, check if an IP is banned.
 app.use(`/`, banRouter);
 
