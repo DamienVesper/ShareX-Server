@@ -1,4 +1,4 @@
-import config from '../../config/config';
+import config from '../config/config';
 
 import passport from './passport';
 import log from './utils/log';
