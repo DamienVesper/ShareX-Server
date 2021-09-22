@@ -18,8 +18,6 @@ import mongoose from 'mongoose';
 
 import helmet from 'helmet';
 
-const ejsLayouts = require(`express-ejs-layouts`);
-
 // Error logging.
 process.on(`uncaughtException`, err => log(`red`, err.stack));
 
@@ -48,7 +46,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Express middleware.
-app.use(ejsLayouts);
 app.use(helmet({ contentSecurityPolicy: false }));
 
 // First, check if an IP is banned.

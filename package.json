@@ -49,11 +49,10 @@
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.5.0",
     "discord.js": "^13.1.0",
-    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.2",
     "helmet": "^4.6.0",
+    "mongodb": "^4.1.2",
     "mongoose": "^6.0.7",
     "xss-filters": "^1.2.7"
   }
