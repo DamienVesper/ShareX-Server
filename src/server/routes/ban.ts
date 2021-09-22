@@ -1,6 +1,6 @@
 import * as Express from 'express';
 
-import Ban from '../models/ban.model';
+import { Ban } from '../models/ban.model';
 
 const banRouter: Express.Router = Express.Router();
 
