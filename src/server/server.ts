@@ -6,7 +6,6 @@ import log from './utils/log';
 import banRouter from './routes/ban';
 import apiRouter from './routes/api';
 import authRouter from './routes/auth';
-import indexRouter from './routes/index';
 
 import * as path from 'path';
 import * as http from 'http';
@@ -69,7 +68,6 @@ app.use(`/`, banRouter);
 // Then, pass to the other routers.
 app.use(`/auth`, authRouter);
 app.use(`/api`, apiRouter);
-app.use(`/`, indexRouter);
 
 // Create the webfront.
 const server = http.createServer(app);
