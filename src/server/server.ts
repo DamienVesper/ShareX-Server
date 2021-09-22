@@ -7,7 +7,6 @@ import banRouter from './routes/ban';
 import apiRouter from './routes/api';
 import authRouter from './routes/auth';
 
-import * as path from 'path';
 import * as http from 'http';
 
 import express from 'express';

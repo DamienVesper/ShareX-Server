@@ -3,7 +3,7 @@
  * @param color The color to log as.
  * @param content The content to log.
  */
-const log = async (color: string, ...content: any[]) => {
+const log = (color: string, ...content: unknown[]): void => {
     // Set timing variables.
     const time = new Date();
     const second = time.getSeconds().toString().padStart(2, `0`);
