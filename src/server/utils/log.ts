@@ -1,3 +1,8 @@
+/**
+ * Print information to the console.
+ * @param color The color to log as.
+ * @param content The content to log.
+ */
 const log = async (color: string, ...content: any[]) => {
     // Set timing variables.
     const time = new Date();
@@ -10,7 +15,7 @@ const log = async (color: string, ...content: any[]) => {
     const formattedTime = `[${month}-${day}-${year} ${hour}:${minute}:${second}]`;
 
     // Get specified color.
-    let logColor;
+    let logColor: string;
     switch (color) {
         case `black`:
             logColor = `\x1b[30m`;
