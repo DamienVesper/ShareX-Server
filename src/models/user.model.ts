@@ -1,12 +1,12 @@
 import * as Mongoose from 'mongoose';
 
 interface UserDoc extends Mongoose.Document {
-    id: string;
+    discordID: string;
     token: string;
 }
 
 const userSchema = new Mongoose.Schema({
-    id: { type: String, required: true },
+    discordID: { type: String, required: true },
     token: { type: String, required: false }
 });
 
