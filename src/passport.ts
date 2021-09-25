@@ -9,7 +9,7 @@ const discordStrategy = new DiscordStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: `https://i.alru.ga/auth/callback`,
-    scope: [`identify`, `email`, `guilds`, `guilds.join`]
+    scope: [`identify`, `email`]
 }, (accessToken: string, refreshToken: string, profile: DiscordStrategy.Profile, done: VerifyCallback) => {
     const userExists = User.findOne({ discordID: profile.id });
     if (!userExists) {
