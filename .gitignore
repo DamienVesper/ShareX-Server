@@ -74,3 +74,6 @@ jspm_packages/
 
 # TypeScript transpilation
 dist/
+
+# IDE garbage
+.vscode

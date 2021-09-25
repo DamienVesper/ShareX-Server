@@ -1,9 +1,10 @@
 import Express from 'express';
 
-import uploadRouter from './api/upload';
-
 const router: Express.Router = Express.Router();
 
-router.use(`/upload`, uploadRouter);
+// File uploads.
+router.post(`/files`, (req: Express.Request, res: Express.Response) => {
+    
+});
 
 export default router;
