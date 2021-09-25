@@ -10,7 +10,7 @@
 using namespace std;
 
 int main () {
-    const string filesDirectory = "/var/www/sharex/media";
+    const string filesDirectory = "/var/www/sharex/i";
     const string backupDirectory = "/home/damienvesper/sharex/media";
 
     char confirmBackup;

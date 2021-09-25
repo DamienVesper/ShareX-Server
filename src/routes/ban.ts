@@ -7,7 +7,7 @@ const banRouter: Express.Router = Express.Router();
 banRouter.all(`*`, async (req: Express.Request, res: Express.Response, next: Express.NextFunction) => {
     const isBanned = await Ban.findOne({ IP: req.ip });
 
-    if (isBanned) res.status(403).send(`403 Forbidden`);
+    if (isBanned) res.status(403);
     else next();
 });
 

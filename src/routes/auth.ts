@@ -16,7 +16,7 @@ router.get(`/discord/callback`, passport.authenticate(`discord`, {
 router.get(`/authenticated`, (req: Express.Request, res: Express.Response) => {
     req.isAuthenticated()
         ? res.jsonp(req.user)
-        : res.status(403).send(`403 Forbidden`);
+        : res.status(403);
 });
 
 // Logout

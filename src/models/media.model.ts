@@ -1,22 +1,16 @@
 import * as Mongoose from 'mongoose';
 
-enum MediaType {
-    PNG,
-    JPG,
-    JPEG,
-    GIF,
-    MP4
-}
+import randomString from '../utils/randomString';
 
 interface MediaDoc extends Mongoose.Document {
     name: string;
-    extension: number;
+    extension: string;
 
     owner: string;
 }
 
 const mediaSchema = new Mongoose.Schema({
-    name: { type: String, required: true, unique: true },
+    name: { type: String, required: false, unique: true, default: randomString(6) },
     extension: { type: Number, required: true },
 
     owner: { type: String, required: true }
@@ -26,6 +20,5 @@ const Media = Mongoose.model<MediaDoc>(`Media`, mediaSchema);
 
 export {
     Media,
-    MediaType,
     MediaDoc
 };

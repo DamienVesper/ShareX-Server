@@ -16,7 +16,9 @@ const argv = (yargs(hideBin(process.argv)).options({
 
 const config = {
     name,
+
     port: argv.port,
+    domain: `i.alru.ga`,
 
     version
 };
