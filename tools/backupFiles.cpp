@@ -1,3 +1,9 @@
+/**
+ * @name Backup Files
+ * @author DamienVesper
+ * Backup files on the ShareX public media directory to a secondary location.
+ **/
+
 #include <iostream>
 #include <filesystem>
 
