@@ -11,11 +11,15 @@ enum MediaType {
 interface MediaDoc extends Mongoose.Document {
     name: string;
     extension: number;
+
+    owner: string;
 }
 
 const mediaSchema = new Mongoose.Schema({
     name: { type: String, required: true, unique: true },
-    extension: { type: Number, required: true }
+    extension: { type: Number, required: true },
+
+    owner: { type: String, required: true }
 });
 
 const Media = Mongoose.model<MediaDoc>(`Media`, mediaSchema);
