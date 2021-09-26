@@ -3,7 +3,11 @@ import passport from 'passport';
 import { Strategy as DiscordStrategy } from 'passport-discord';
 import { VerifyCallback } from 'passport-oauth2';
 
+import * as fs from 'fs';
+import * as path from 'path';
+
 import { User } from './models/user.model';
+import ExampleUserConfig from '../ShareX.json';
 
 const discordStrategy = new DiscordStrategy({
     clientID: process.env.CLIENT_ID,
@@ -16,7 +20,13 @@ const discordStrategy = new DiscordStrategy({
         const user = new User({ discordId: profile.id });
         user.save(err => {
             if (err) return done(err);
-            else return done(err, user);
+            else {
+                const userConfig = ExampleUserConfig;
+                userConfig.Arguments.key = user.token;
+
+                fs.writeFileSync(path.resolve(__dirname, `../configs/${user.discordID}.sxcu`), JSON.stringify(userConfig), `utf-8`);
+                return done(err, user);
+            }
         });
     }
 });
