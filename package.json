@@ -5,8 +5,8 @@
   "main": "src/server.ts",
   "scripts": {
     "build": "tsc",
-    "dist": "node ./dist/src/server.js --mode prod",
-    "dev": "node ./dist/src/server.js --mode dev",
+    "dist": "node ./dist/src/server.js --port 8795",
+    "dev": "node ./dist/src/server.js --port 8080",
     "dev:lint": "eslint . --fix --ext .ts"
   },
   "repository": {
