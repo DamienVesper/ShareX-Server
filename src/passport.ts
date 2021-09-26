@@ -4,7 +4,6 @@ import { Strategy as DiscordStrategy } from 'passport-discord';
 import { VerifyCallback } from 'passport-oauth2';
 
 import * as fs from 'fs';
-import * as path from 'path';
 
 import { User } from './models/user.model';
 import ExampleUserConfig from '../ShareX.json';
@@ -24,7 +23,7 @@ const discordStrategy = new DiscordStrategy({
                 const userConfig = ExampleUserConfig;
                 userConfig.Arguments.key = user.token;
 
-                fs.writeFileSync(path.resolve(__dirname, `../configs/${user.discordID}.sxcu`), JSON.stringify(userConfig), `utf-8`);
+                fs.writeFileSync(`/var/www/sharex/configs/${user.discordID}.sxcu`, JSON.stringify(userConfig), `utf-8`);
                 return done(err, user);
             }
         });

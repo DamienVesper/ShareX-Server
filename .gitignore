@@ -9,9 +9,3 @@ dist/
 
 # IDE garbage
 .vscode/
-
-# Uploaded media
-i/
-
-# ShareX configuration files
-configs/

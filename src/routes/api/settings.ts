@@ -1,7 +1,6 @@
 import Express from 'express';
 
 import * as fs from 'fs';
-import * as path from 'path';
 
 const router: Express.Router = Express.Router();
 
@@ -14,7 +13,7 @@ router.get(`/config`, (req: Express.Request, res: Express.Response): void => {
 
     // eslint-disable-next-line
     const discordID = (<any>req.user).discordID;
-    const fileLocation = path.resolve(__dirname, `../../../configs/${discordID}.sxcu`);
+    const fileLocation = `/var/www/sharex/configs/${discordID}.sxcu`;
 
     if (!fs.existsSync(fileLocation)) {
         res.status(500);
