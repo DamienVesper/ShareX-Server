@@ -15,7 +15,7 @@ int main () {
 
     char confirmBackup;
 
-    cout << "Are you sure you want to create a backup of the ShareX media? [Y/n] ";
+    cout << "Are you sure you want to create a backup of the ShareX media? [y/n] ";
     cin >> confirmBackup;
 
     if (confirmBackup != 'y') {
