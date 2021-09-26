@@ -1,17 +1,26 @@
+
+interface LogColor {
+    color: `black` | `red` | `green` | `yellow` | `blue` | `magenta` | `cyan` | `white`
+}
+
 /**
- * Print information to the console.
+ * Log something to console.
+ * @author DamienVesper
  * @param color The color to log as.
  * @param content The content to log.
  */
-const log = (color: string, ...content: unknown[]): void => {
+const log = (color: LogColor[`color`], ...content: unknown[]): void => {
     // Set timing variables.
     const time = new Date();
     const second = time.getSeconds().toString().padStart(2, `0`);
     const minute = time.getMinutes().toString().padStart(2, `0`);
+
     const hour = time.getHours().toString().padStart(2, `0`);
     const day = time.getDate().toString().padStart(2, `0`);
+
     const month = (time.getMonth() + 1).toString().padStart(2, `0`);
     const year = time.getFullYear().toString();
+
     const formattedTime = `[${month}-${day}-${year} ${hour}:${minute}:${second}]`;
 
     // Get specified color.
