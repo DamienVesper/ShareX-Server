@@ -1,4 +1,4 @@
-import * as Mongoose from 'mongoose';
+import Mongoose from 'mongoose';
 
 import randomString from '../utils/randomString';
 

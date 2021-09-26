@@ -7,6 +7,10 @@ import log from './log';
  */
 const createMediaFolders = (): void => {
     log(`cyan`, `Checking if ShareX folders exist...`);
+    if (process.platform !== `linux`) {
+        log(`red`, `Media folders can only be created on Linux, aborting...`);
+        return;
+    }
 
     const mediaPath = `/var/www/sharex/i`;
     const configPath = `/var/www/sharex/configs`;

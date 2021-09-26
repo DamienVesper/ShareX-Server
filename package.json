@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dist": "node ./dist/src/server.js --port 8795",
+    "dev": "ts-node ./src/server.ts --port 8795",
     "dev:lint": "eslint . --fix --ext .ts"
   },
   "repository": {
@@ -37,6 +38,7 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
+    "ts-node": "^10.2.1",
     "typescript": "^4.4.3",
     "yargs": "^17.2.1"
   },

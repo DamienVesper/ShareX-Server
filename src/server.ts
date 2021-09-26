@@ -1,7 +1,7 @@
 import Express from 'express';
 import MongoStore from 'connect-mongo';
 
-import * as Mongoose from 'mongoose';
+import Mongoose from 'mongoose';
 import * as HTTP from 'http';
 
 import session from 'express-session';
@@ -28,9 +28,6 @@ const app: Express.Application = Express();
 // Express extension configurations.
 app.use(Express.json({ limit: `5mb` }));
 app.use(Express.urlencoded({ limit: `5mb`, extended: true }));
-
-// Database connection.
-Mongoose.connect(process.env.MONGO_URI).then(() => log(`green`, `User authentication has connected to database.`));
 
 // Express session.
 app.use(session({
@@ -70,6 +67,12 @@ server.listen(config.port, () => {
     log(`green`, `Webfront bound to port ${config.port}.`);
     logHeader();
 
-    createMediaFolders();
-    logHeader();
+    // Database connection.
+    Mongoose.connect(process.env.MONGO_URI).then(() => {
+        log(`green`, `Connected to database.`);
+        logHeader();
+
+        createMediaFolders();
+        logHeader();
+    });
 });
