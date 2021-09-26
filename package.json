@@ -6,7 +6,6 @@
   "scripts": {
     "build": "tsc",
     "dist": "node ./dist/src/server.js --port 8795",
-    "dev": "node ./dist/src/server.js --port 8080",
     "dev:lint": "eslint . --fix --ext .ts"
   },
   "repository": {

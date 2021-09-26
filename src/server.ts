@@ -1,34 +1,36 @@
+import Express from 'express';
+import MongoStore from 'connect-mongo';
+
+import * as Mongoose from 'mongoose';
+import * as HTTP from 'http';
+
+import session from 'express-session';
+import helmet from 'helmet';
+
 import config from '../config/config';
 
-import passport from './passport';
 import log from './utils/log';
+import { logHeader, logSplash } from './utils/logExtra';
+import createMediaFolders from './utils/createMediaFolders';
 
 import banRouter from './routes/ban';
 import apiRouter from './routes/api';
 import authRouter from './routes/auth';
 
-import * as http from 'http';
-
-import express from 'express';
-import session from 'express-session';
-
-import MongoStore from 'connect-mongo';
-import mongoose from 'mongoose';
-
-import helmet from 'helmet';
+import passport from './passport';
 
 // Error logging.
 process.on(`uncaughtException`, err => log(`red`, err.stack));
 
 // Express app.
-const app: express.Application = express();
+const app: Express.Application = Express();
 
 // Express extension configurations.
-app.use(express.json({ limit: `5mb` }));
-app.use(express.urlencoded({ limit: `5mb`, extended: true }));
+app.use(Express.json({ limit: `5mb` }));
+app.use(Express.urlencoded({ limit: `5mb`, extended: true }));
 
 // Database connection.
-mongoose.connect(process.env.MONGO_URI).then(() => log(`green`, `User authentication has connected to database.`));
+Mongoose.connect(process.env.MONGO_URI).then(() => log(`green`, `User authentication has connected to database.`));
 
 // Express session.
 app.use(session({
@@ -55,7 +57,16 @@ app.use(`/auth`, authRouter);
 app.use(`/api`, apiRouter);
 
 // Create the webfront.
-const server = http.createServer(app);
+const server = HTTP.createServer(app);
 
 // Bind the webfront to defined port.
-server.listen(config.port, () => log(`green`, `Webfront bound to port ${config.port}.`));
+server.listen(config.port, () => {
+    logSplash();
+    logHeader();
+
+    log(`green`, `Webfront bound to port ${config.port}.`);
+    logHeader();
+
+    createMediaFolders();
+    logHeader();
+});
