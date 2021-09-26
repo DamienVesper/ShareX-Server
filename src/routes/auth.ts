@@ -15,7 +15,7 @@ router.get(`/discord/callback`, passport.authenticate(`discord`, {
 // Authentication Information
 router.get(`/authenticated`, (req: Express.Request, res: Express.Response) => {
     req.isAuthenticated()
-        ? res.jsonp(req.user)
+        ? res.status(200).jsonp(req.user)
         : res.status(403);
 });
 

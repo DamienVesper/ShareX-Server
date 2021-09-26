@@ -11,29 +11,33 @@ import * as path from 'path';
 const router: Express.Router = Express.Router();
 
 // File uploads.
-router.post(`/files`, async (req: Express.Request, res: Express.Response): Promise<unknown> => {
-    if (!req.files?.file) return res.status(400);
-    else if (!req.query.key && !req.body.key) return res.status(403);
+router.post(`/files`, async (req: Express.Request, res: Express.Response): Promise<void> => {
+    if (!req.files?.file) {
+        res.status(400);
+        return;
+    } else if (!req.query.key && !req.body.key) {
+        res.status(403);
+        return;
+    }
 
     const authKey = (req.query.key as string);
 
     const user = await User.findOne({ token: authKey });
-    if (!user || user.suspended) return res.status(403);
+    if (!user || user.suspended) {
+        res.status(403);
+        return;
+    }
 
     const file = (req.files.file as UploadedFile);
-
-    const media = new Media({
-        extension: path.extname(file.name)
-    });
+    const media = new Media({ extension: path.extname(file.name) });
+    const fileName = media.name + media.extension;
 
     media.save();
-    file.mv(path.resolve(`/var/www/sharex/i/`, media.name + media.extension));
+    file.mv(path.resolve(`/var/www/sharex/i/`, fileName));
 
     res.status(200).jsonp({
         success: true,
-        file: {
-            url: `https://${config.domain}/i/${media.name + media.extension}`
-        }
+        file: { url: `https://${config.domain}/i/${fileName}` }
     });
 });
 
