@@ -56,6 +56,9 @@ app.use(`/`, banRouter);
 app.use(`/auth`, authRouter);
 app.use(`/api`, apiRouter);
 
+// Use proxy headers from NGINX instead of direct loobpack IP.
+app.set(`trust proxy`, true);
+
 // Create the webfront.
 const server = HTTP.createServer(app);
 
