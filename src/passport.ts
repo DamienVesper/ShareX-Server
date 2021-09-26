@@ -13,8 +13,8 @@ const discordStrategy = new DiscordStrategy({
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: `https://i.alru.ga/auth/callback`,
     scope: [`identify`, `email`]
-}, (accessToken: string, refreshToken: string, profile: DiscordStrategy.Profile, done: VerifyCallback) => {
-    const userExists = User.findOne({ discordID: profile.id });
+}, async (accessToken: string, refreshToken: string, profile: DiscordStrategy.Profile, done: VerifyCallback) => {
+    const userExists = await User.findOne({ discordID: profile.id });
     if (!userExists) {
         const user = new User({ discordId: profile.id });
         user.save(err => {
@@ -27,7 +27,7 @@ const discordStrategy = new DiscordStrategy({
                 return done(err, user);
             }
         });
-    }
+    } else return done(undefined, userExists);
 });
 
 passport.use(discordStrategy);
