@@ -16,7 +16,7 @@ const discordStrategy = new DiscordStrategy({
 }, async (accessToken: string, refreshToken: string, profile: DiscordStrategy.Profile, done: VerifyCallback) => {
     const userExists = await User.findOne({ discordID: profile.id });
     if (!userExists) {
-        const user = new User({ discordId: profile.id });
+        const user = new User({ discordID: profile.id });
         user.save(err => {
             if (err) return done(err);
             else {
