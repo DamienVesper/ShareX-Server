@@ -9,8 +9,6 @@ import config from '../../../config/config';
 import { Media } from '../../models/media.model';
 import { User } from '../../models/user.model';
 
-import log from '../../utils/log';
-
 const router: Express.Router = Express.Router();
 
 // File uploads.
@@ -23,7 +21,6 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
 
         if (files === undefined) {
             res.status(400);
-            log(`red`, `there is no file`);
             return;
         }
 
@@ -31,7 +28,6 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
 
         if (fields.key === undefined) {
             res.status(400);
-            log(`red`, `there are no keys!`);
             return;
         }
 
