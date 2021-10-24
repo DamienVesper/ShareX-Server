@@ -55,7 +55,12 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
             console.log(files);
             const file = ((files as unknown) as File);
             console.log(file);
-            const media = new Media({ name: path.parse(file.name).name, extension: path.parse(file.name).ext });
+            const media = new Media({
+                name: path.parse(file.name).name,
+                extension: path.parse(file.name).ext,
+
+                owner: user.discordID
+            });
             const fileName = media.name + media.extension;
 
             console.log(`got here 11`);
