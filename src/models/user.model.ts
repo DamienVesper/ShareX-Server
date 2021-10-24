@@ -17,6 +17,7 @@ interface UserDoc extends Mongoose.Document {
 
 const userSchema = new Mongoose.Schema({
     discordID: { type: String, required: true },
+    email: { type: String, required: true },
     token: { type: String, required: false, unique: true, default: randomString(32) },
 
     suspended: { type: Boolean, required: false, default: false },
