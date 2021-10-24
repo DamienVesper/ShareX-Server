@@ -20,7 +20,7 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
     console.log(`got here 2`);
     form.parse(req, (err, fields: { key: string }, files) => {
         console.log(`got here 3`);
-        if (err !== undefined) {
+        if (err !== undefined && err !== null) {
             console.log(`got here 4`);
             console.log(err);
             throw err;
