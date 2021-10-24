@@ -20,7 +20,7 @@ import authRouter from './routes/auth';
 import passport from './passport';
 
 // Error logging.
-process.on(`uncaughtException`, err => log(`red`, (err.stack as string)));
+process.on(`uncaughtException`, err => log(`red`, ((err as unknown) as string)));
 
 // Express app.
 const app: Express.Application = Express();
