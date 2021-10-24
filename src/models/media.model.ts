@@ -11,7 +11,7 @@ interface MediaDoc extends Mongoose.Document {
 
 const mediaSchema = new Mongoose.Schema({
     name: { type: String, required: false, unique: true, default: randomString(6) },
-    extension: { type: Number, required: true },
+    extension: { type: String, required: true },
 
     owner: { type: String, required: true }
 });
