@@ -66,7 +66,8 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
 
             void media.save().then(() => {
                 console.log(`got here 12`);
-                void fs.rename(path.basename(fileName), path.resolve(`/var/www/sharex/i/`, fileName), () => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                void fs.rename((file.fdata as any).path, path.resolve(`/var/www/sharex/i`, fileName), () => {
                     console.log(`got here 13`);
                     res.status(200).send(`https://${config.domain}/i/${fileName}`);
                     console.log(`got here 14`);
