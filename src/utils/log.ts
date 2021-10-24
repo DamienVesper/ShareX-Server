@@ -1,15 +1,11 @@
 
-interface LogColor {
-    color: `black` | `red` | `green` | `yellow` | `blue` | `magenta` | `cyan` | `white`
-}
-
 /**
  * Log something to console.
  * @author DamienVesper
  * @param color The color to log as.
  * @param content The content to log.
  */
-const log = (color: LogColor[`color`], ...content: unknown[]): void => {
+const log = (color: `black` | `red` | `green` | `yellow` | `blue` | `magenta` | `cyan` | `white`, ...content: unknown[]): void => {
     // Set timing variables.
     const time = new Date();
     const second = time.getSeconds().toString().padStart(2, `0`);
