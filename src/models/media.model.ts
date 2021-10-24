@@ -3,10 +3,10 @@ import Mongoose from 'mongoose';
 import randomString from '../utils/randomString';
 
 interface MediaDoc extends Mongoose.Document {
-    name: string;
-    extension: string;
+    name: string
+    extension: string
 
-    owner: string;
+    owner: string
 }
 
 const mediaSchema = new Mongoose.Schema({

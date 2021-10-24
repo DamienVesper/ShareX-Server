@@ -5,7 +5,7 @@
  * @param color The color to log as.
  * @param content The content to log.
  */
-const log = (color: `black` | `red` | `green` | `yellow` | `blue` | `magenta` | `cyan` | `white`, ...content: unknown[]): void => {
+const log = (color: `black` | `red` | `green` | `yellow` | `blue` | `magenta` | `cyan` | `white`, ...content: string[]): void => {
     // Set timing variables.
     const time = new Date();
     const second = time.getSeconds().toString().padStart(2, `0`);
@@ -48,13 +48,7 @@ const log = (color: `black` | `red` | `green` | `yellow` | `blue` | `magenta` | 
             break;
     }
 
-    let logContent = ``;
-    for (const arg of content) {
-        if (typeof arg === `object`) logContent += JSON.stringify(arg);
-        else logContent += arg.toString();
-    }
-
-    console.log(logColor || `\x1b[37m`, formattedTime, logContent);
+    console.log(logColor, formattedTime, content.join(` `));
 };
 
 export default log;

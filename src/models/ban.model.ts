@@ -1,8 +1,8 @@
 import Mongoose from 'mongoose';
 
 interface BanDoc extends Mongoose.Document {
-    IP: string;
-    comment?: string;
+    IP: string
+    comment?: string
 }
 
 const banSchema = new Mongoose.Schema({

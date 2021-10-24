@@ -3,27 +3,34 @@ import Mongoose from 'mongoose';
 import randomString from '../utils/randomString';
 
 interface UserDoc extends Mongoose.Document {
-    username: string;
-    email: string;
-    discordID: string;
+    discordID: string
+    email: string
 
-    token: string;
+    username: string
+    avatar: string
 
-    suspended: boolean;
+    suspended: boolean
     permissions: {
-        admin: boolean;
+        admin: boolean
     }
+
+    token: string
+    requestToken: string
 }
 
 const userSchema = new Mongoose.Schema({
     discordID: { type: String, required: true },
     email: { type: String, required: true },
-    token: { type: String, required: false, unique: true, default: randomString(32) },
+
+    username: { type: String, required: true },
+    avatar: { type: String, required: true },
 
     suspended: { type: Boolean, required: false, default: false },
     permissions: {
         admin: { type: Boolean, required: false, default: false }
-    }
+    },
+
+    token: { type: String, required: false, unique: true, default: randomString(32) }
 });
 
 const User = Mongoose.model<UserDoc>(`User`, userSchema);

@@ -20,7 +20,7 @@ import authRouter from './routes/auth';
 import passport from './passport';
 
 // Error logging.
-process.on(`uncaughtException`, err => log(`red`, err.stack));
+process.on(`uncaughtException`, err => log(`red`, (err.stack as string)));
 
 // Express app.
 const app: Express.Application = Express();
@@ -31,7 +31,7 @@ app.use(Express.urlencoded({ limit: `5mb`, extended: true }));
 
 // Express session.
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: (process.env.SESSION_SECRET as string),
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
@@ -68,7 +68,7 @@ server.listen(config.port, () => {
     logHeader();
 
     // Database connection.
-    Mongoose.connect(process.env.MONGO_URI).then(() => {
+    void Mongoose.connect((process.env.MONGO_URI as string)).then(() => {
         log(`green`, `Connected to database.`);
         logHeader();
 

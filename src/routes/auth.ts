@@ -9,9 +9,18 @@ router.get(`/discord`, passport.authenticate(`discord`, { failureRedirect: `/` }
 
 // Authentication Information
 router.get(`/authenticated`, (req: Express.Request, res: Express.Response) => {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     req.isAuthenticated()
-        ? res.status(200).jsonp(req.user)
+        ? res.status(200).jsonp({
+            discordID: (req.user as any).discordID,
+            username: (req.user as any).username,
+            email: (req.user as any).email,
+            avatar: (req.user as any).avatar,
+
+            permissions: (req.user as any).permissions
+        })
         : res.status(403);
+    /* eslint-enable @typescript-eslint/no-explicit-any */
 });
 
 // Logout

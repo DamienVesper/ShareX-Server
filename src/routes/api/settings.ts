@@ -11,9 +11,9 @@ router.get(`/config`, (req: Express.Request, res: Express.Response): void => {
         return;
     }
 
-    // eslint-disable-next-line
-    const discordID = (<any>req.user).discordID;
-    const fileLocation = `/var/www/sharex/configs/${discordID}.sxcu`;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const discordID = (req.user as any).discordID;
+    const fileLocation = `/var/www/sharex/configs/${(discordID as string)}.sxcu`;
 
     if (!fs.existsSync(fileLocation)) {
         res.status(500);
