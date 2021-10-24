@@ -9,6 +9,8 @@ import config from '../../../config/config';
 import { Media } from '../../models/media.model';
 import { User } from '../../models/user.model';
 
+import randomString from '../../utils/randomString';
+
 const router: Express.Router = Express.Router();
 
 // File uploads.
@@ -40,6 +42,7 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
             const file = ((files as unknown) as { fdata: File });
 
             const media = new Media({
+                name: randomString(5),
                 extension: path.parse(file.fdata.name).ext,
                 owner: user.discordID
             });
