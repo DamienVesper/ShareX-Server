@@ -68,10 +68,7 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
                 console.log(`got here 12`);
                 void fs.rename(path.basename(fileName), path.resolve(`/var/www/sharex/i/`, fileName), () => {
                     console.log(`got here 13`);
-                    res.status(200).jsonp({
-                        success: true,
-                        file: { url: `https://${config.domain}/i/${fileName}` }
-                    });
+                    res.status(200).send(`https://${config.domain}/i/${fileName}`);
                     console.log(`got here 14`);
                 });
             });
