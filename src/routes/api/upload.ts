@@ -15,10 +15,19 @@ const router: Express.Router = Express.Router();
 
 // File uploads.
 router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
+    console.log(`got here`);
     const form = new IncomingForm();
+    console.log(`got here 2`);
     form.parse(req, (err, fields: { key: string }, files) => {
-        if (err !== undefined) throw err;
+        console.log(`got here 3`);
+        if (err !== undefined) {
+            console.log(`got here 4`);
+            console.log(err);
+            throw err;
+        }
+
         if (files === undefined) {
+            console.log(`got here 5`);
             res.status(400);
             log(`red`, `there is no file`);
             return;
@@ -27,30 +36,39 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
         const authKey = fields.key;
 
         if (fields.key === undefined) {
+            console.log(`got here 6`);
             res.status(400);
             log(`red`, `there are no keys!`);
             return;
         }
 
+        console.log(`got here 7`);
         void User.findOne({ token: authKey }).then(user => {
+            console.log(`got here 8`);
             if ((user == null) || user.suspended) {
+                console.log(`got here 9`);
                 res.status(403);
                 return;
             }
 
+            console.log(`got here 10`);
             const file = ((files as unknown) as File);
             const media = new Media({ extension: path.extname(file.name) });
             const fileName = media.name + media.extension;
 
+            console.log(`got here 11`);
             console.log(fileName);
             console.log(file.name);
 
             void media.save().then(() => {
+                console.log(`got here 12`);
                 void fs.rename(path.basename(fileName), path.resolve(`/var/www/sharex/i/`, fileName), () => {
+                    console.log(`got here 13`);
                     res.status(200).jsonp({
                         success: true,
                         file: { url: `https://${config.domain}/i/${fileName}` }
                     });
+                    console.log(`got here 14`);
                 });
             });
         });
