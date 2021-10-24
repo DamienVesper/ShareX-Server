@@ -32,4 +32,14 @@ const discordStrategy = new DiscordStrategy({
 
 passport.use(discordStrategy);
 
+passport.serializeUser((user, done) => {
+    done(null, user);
+});
+
+passport.deserializeUser((id, done) => {
+    User.findById(id, (err: unknown, user: typeof User) => {
+        done(err, user);
+    });
+});
+
 export default passport;
