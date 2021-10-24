@@ -1,0 +1,10 @@
+[Unit]
+Description=Alliance Reunited ShareX Backend.
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/ShareX-Backend
+ExecStart=/usr/bin/yarn dev
+
+[Install]
+WantedBy=multi-user.target
