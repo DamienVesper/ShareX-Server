@@ -6,6 +6,8 @@ import { VerifyCallback } from 'passport-oauth2';
 import * as fs from 'fs';
 
 import { User } from './models/user.model';
+import randomString from './utils/randomString';
+
 import ExampleUserConfig from '../ShareX.json';
 
 const discordStrategy = new DiscordStrategy({
@@ -20,7 +22,9 @@ const discordStrategy = new DiscordStrategy({
                 username: profile.username,
                 email: profile.email,
                 discordID: profile.id,
-                avatar: profile.avatar
+                avatar: profile.avatar,
+
+                token: randomString(32)
             });
 
             void user.save(err => {

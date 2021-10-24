@@ -30,7 +30,7 @@ const userSchema = new Mongoose.Schema({
         admin: { type: Boolean, required: false, default: false }
     },
 
-    token: { type: String, required: false, unique: true, default: randomString(32) }
+    token: { type: String, required: false, unique: true }
 });
 
 const User = Mongoose.model<UserDoc>(`User`, userSchema);
