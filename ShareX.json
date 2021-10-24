@@ -3,7 +3,7 @@
     "Name": "Images_and_Files",
     "DestinationType": "ImageUploader, FileUploader",
     "RequestMethod": "POST",
-    "RequestURL": "https://i.alru.ga/api/upload/files",
+    "RequestURL": "https://i.alru.xyz/api/upload/files",
     "Body": "MultipartFormData",
     "Arguments": {
         "key": "my_user_key"
