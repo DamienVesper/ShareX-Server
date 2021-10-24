@@ -11,7 +11,7 @@ import ExampleUserConfig from '../ShareX.json';
 const discordStrategy = new DiscordStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: `https://i.alru.ga/auth/callback`,
+    callbackURL: `https://i.alru.ga/auth/discord/callback`,
     scope: [`identify`, `email`]
 }, async (accessToken: string, refreshToken: string, profile: DiscordStrategy.Profile, done: VerifyCallback) => {
     const userExists = await User.findOne({ discordID: profile.id });
