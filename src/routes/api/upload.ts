@@ -52,9 +52,9 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
             }
 
             console.log(`got here 10`);
-            console.log(files);
             const file = ((files as unknown) as File);
-            console.log(file);
+
+            console.log(path.parse(file.name));
             const media = new Media({
                 name: path.parse(file.name).name,
                 extension: path.parse(file.name).ext,
