@@ -27,7 +27,6 @@ const app: Express.Application = Express();
 
 // Express extension configurations.
 app.use(Express.json({ limit: `5mb` }));
-app.use(Express.urlencoded({ limit: `5mb`, extended: true }));
 
 // Express session.
 app.use(session({
