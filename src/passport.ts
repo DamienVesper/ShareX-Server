@@ -13,7 +13,7 @@ import ExampleUserConfig from '../ShareX.json';
 const discordStrategy = new DiscordStrategy({
     clientID: (process.env.CLIENT_ID as string),
     clientSecret: (process.env.CLIENT_SECRET as string),
-    callbackURL: `https://i.alru.ga/auth/discord`,
+    callbackURL: `https://i.alru.xyz/auth/discord`,
     scope: [`identify`, `email`]
 }, (accessToken: string, refreshToken: string, profile: DiscordStrategy.Profile, done: VerifyCallback) => {
     void User.findOne({ discordID: profile.id }).then(userExists => {
