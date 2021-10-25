@@ -22,20 +22,20 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
         }
 
         if (files === undefined) {
-            res.status(400);
+            res.status(400).send(`400 Bad Request`);
             return;
         }
 
         const authKey = fields.key;
 
         if (fields.key === undefined) {
-            res.status(400);
+            res.status(400).send(`400 Bad Request`);
             return;
         }
 
         void User.findOne({ token: authKey }).then(user => {
             if ((user == null) || user.suspended) {
-                res.status(403);
+                res.status(403).send(`403 Forbidden`);
                 return;
             }
 
