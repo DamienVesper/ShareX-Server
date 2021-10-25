@@ -18,7 +18,7 @@ const config = {
     name,
 
     port: argv.port,
-    domain: `i.alru.ga`,
+    domain: `i.alru.xyz`,
 
     version
 };
