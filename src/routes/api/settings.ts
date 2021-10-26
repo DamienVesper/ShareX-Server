@@ -7,7 +7,7 @@ const router: Express.Router = Express.Router();
 // User configs.
 router.get(`/config`, (req: Express.Request, res: Express.Response): void => {
     if (!req.isAuthenticated()) {
-        res.status(403);
+        res.status(403).send(`403 Forbidden`);
         return;
     }
 
@@ -16,7 +16,7 @@ router.get(`/config`, (req: Express.Request, res: Express.Response): void => {
     const fileLocation = `/var/www/sharex/configs/${(discordID as string)}.sxcu`;
 
     if (!fs.existsSync(fileLocation)) {
-        res.status(500);
+        res.status(500).send(`500 Internal Server Error`);
         return;
     }
 
