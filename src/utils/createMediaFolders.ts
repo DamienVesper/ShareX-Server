@@ -12,8 +12,8 @@ const createMediaFolders = (): void => {
         return;
     }
 
-    const mediaPath = `/var/www/sharex/i`;
-    const configPath = `/var/www/sharex/configs`;
+    const mediaPath = `/var/www/ShareX/i`;
+    const configPath = `/var/www/ShareX/configs`;
 
     if (!fs.existsSync(mediaPath)) {
         log(`yellow`, `Media folder does not exist, creating...`);

@@ -13,7 +13,7 @@ router.get(`/config`, (req: Express.Request, res: Express.Response): void => {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const discordID = (req.user as any).discordID;
-    const fileLocation = `/var/www/sharex/configs/${(discordID as string)}.sxcu`;
+    const fileLocation = `/var/www/ShareX/configs/${(discordID as string)}.sxcu`;
 
     if (!fs.existsSync(fileLocation)) {
         res.status(500).send(`500 Internal Server Error`);

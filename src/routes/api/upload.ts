@@ -50,7 +50,7 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
             const fileName = media.name + media.extension;
             void media.save().then(() => {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                void fs.rename((file.fdata as any).path, path.resolve(`/var/www/sharex/i`, fileName), () => {
+                void fs.rename((file.fdata as any).path, path.resolve(`/var/www/ShareX/i`, fileName), () => {
                     res.status(200).send(`https://${config.domain}/i/${fileName}`);
                 });
             });

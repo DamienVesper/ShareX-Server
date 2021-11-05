@@ -33,7 +33,7 @@ const discordStrategy = new DiscordStrategy({
                     const userConfig = ExampleUserConfig;
                     userConfig.Arguments.key = user.token;
 
-                    fs.writeFileSync(`/var/www/sharex/configs/${user.discordID}.sxcu`, JSON.stringify(userConfig), `utf-8`);
+                    fs.writeFileSync(`/var/www/ShareX/configs/${user.discordID}.sxcu`, JSON.stringify(userConfig), `utf-8`);
                     return done(err, user);
                 }
             });
