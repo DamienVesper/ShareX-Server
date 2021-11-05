@@ -1,7 +1,5 @@
 import Mongoose from 'mongoose';
 
-import randomString from '../utils/randomString';
-
 interface UserDoc extends Mongoose.Document {
     discordID: string
     email: string
