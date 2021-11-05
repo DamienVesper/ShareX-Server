@@ -3,7 +3,7 @@ Description=Alliance Reunited ShareX Backend.
 
 [Service]
 Type=simple
-WorkingDirectory=/opt/ShareX
+WorkingDirectory=/usr/share/sharex
 ExecStart=/usr/bin/yarn dev
 
 [Install]
