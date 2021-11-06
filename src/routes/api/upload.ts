@@ -43,14 +43,15 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
 
             const media = new Media({
                 name: randomString(5),
-                extension: path.parse(file.fdata.name).ext,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                extension: path.parse((file.fdata as any).originalFilename).ext,
                 owner: user.discordID
             });
 
             const fileName = media.name + media.extension;
             void media.save().then(() => {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                void fs.rename((file.fdata as any).path, path.resolve(`/var/www/ShareX/i`, fileName), () => {
+                void fs.rename((file.fdata as any).filepath, path.resolve(`/var/www/ShareX/i`, fileName), () => {
                     res.status(200).send(`https://${config.domain}/i/${fileName}`);
                 });
             });
