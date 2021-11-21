@@ -2,14 +2,15 @@
   "name": "@alliance-reunited/sharex",
   "description": "A ShareX server for Alliance Reunited.",
   "packageManager": "yarn@3.1.0",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "main": "src/server.ts",
   "scripts": {
     "build": "tsc",
     "dist": "node ./dist/src/server.js --port 8795",
     "dev": "ts-node ./src/server.ts --port 8795",
-    "dev:lint": "eslint . --fix --ext .ts"
+    "dev:lint": "eslint . --fix --ext .ts",
+    "dev:lint:ci": "eslint . --ext .ts"
   },
   "engines": {
     "node": ">=16.10.0",
