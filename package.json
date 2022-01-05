@@ -1,7 +1,6 @@
 {
-  "name": "@alliance-reunited/sharex",
-  "description": "A ShareX server for Alliance Reunited.",
-  "packageManager": "yarn@3.1.0",
+  "name": "sharex-server",
+  "description": "A Node.js ShareX server.",
   "version": "1.1.0",
   "private": true,
   "main": "src/server.ts",
@@ -18,17 +17,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Alliance-Reunited/ShareX.git"
+    "url": "git+https://github.com/DamienVesper/ShareX-Server.git"
   },
   "keywords": [
     "sharex"
   ],
   "author": "DamienVesper",
-  "license": "ISC",
+  "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/Alliance-Reunited/ShareX/issues"
+    "url": "https://github.com/DamienVesper/ShareX-Server/issues"
   },
-  "homepage": "https://github.com/Alliance-Reunited/ShareX#readme",
+  "homepage": "https://github.com/DamienVesper/ShareX-Server#readme",
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/express-session": "^1.17.4",

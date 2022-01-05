@@ -18,7 +18,7 @@ const config = {
     name,
 
     port: argv.port,
-    domain: `i.alru.xyz`,
+    domain: `localhost:8080`,
 
     version
 };

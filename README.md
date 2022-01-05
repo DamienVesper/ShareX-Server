@@ -1,6 +1,6 @@
 <div align="center">
     <h1>ShareX</h1>
-    <h3>A custom ShareX upload host built for Alliance Reunited.</h3>
+    <h3>A custom ShareX upload host.</h3>
 </div>
 <br />
 

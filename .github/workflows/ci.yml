@@ -3,30 +3,33 @@ name: CI
 on:
   push:
   pull_request:
+    branches: [dependabot/**]
 
 jobs:
   nodejs:
     name: Node.js
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16]
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Install Node.js ${{ matrix.node-version }}
+      - name: Install pNPM
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.20.3
+
+      - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16
+          cache: pnpm
 
       - name: Install Packages
-        run: yarn
+        run: pnpm install
 
       - name: Build
-        run: yarn build
+        run: pnpm run build
 
       - name: Lint
-        run: yarn dev:lint:ci
+        run: pnpm run dev:lint:ci
