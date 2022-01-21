@@ -18,10 +18,6 @@ import authRouter from './routes/auth';
 
 import passport from './passport';
 
-// Error logging.
-process.on(`uncaughtException`, err => console.log(err));
-// log(`red`, ((err as unknown) as string)));
-
 // Express app.
 const app: Express.Application = Express();
 
