@@ -10,6 +10,7 @@ import { Media } from '../../models/media.model';
 import { User } from '../../models/user.model';
 
 import randomString from '../../utils/randomString';
+import log from '../../utils/log';
 
 const router: Express.Router = Express.Router();
 
@@ -49,12 +50,13 @@ router.post(`/files`, (req: Express.Request, res: Express.Response): void => {
             });
 
             const fileName = media.name + media.extension;
-            void media.save().then(() => {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                void fs.rename((file.fdata as any).filepath, path.resolve(`/var/www/ShareX/i`, fileName), () => {
-                    res.status(200).send(`https://${config.domain}/i/${fileName}`);
-                });
-            });
+            void media.save()
+                .then(() => {
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    void fs.rename((file.fdata as any).filepath, path.resolve(`/var/www/ShareX/i`, fileName), () => {
+                        res.status(200).send(`https://${config.domain}/i/${fileName}`);
+                    });
+                }).catch(err => log(`red`, err));
         });
     });
 });
