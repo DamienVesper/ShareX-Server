@@ -11,7 +11,6 @@ import config from '../config/config';
 
 import log from './utils/log';
 import { logHeader, logSplash } from './utils/logExtra';
-import createMediaFolders from './utils/createMediaFolders';
 
 import banRouter from './routes/ban';
 import apiRouter from './routes/api';
@@ -73,7 +72,6 @@ server.listen(config.port, () => {
         log(`green`, `Connected to database.`);
         logHeader();
 
-        createMediaFolders();
         logHeader();
     });
 });
