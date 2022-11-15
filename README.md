@@ -4,6 +4,9 @@
 </div>
 <br />
 
+## Notice
+This project is deprecated in favor of [Snippet](https://github.com/DamienVesper/Snippet).
+
 ## Installation
 This project utilizes [Yarn](https://yarnpkg.com). No other package manager is supported for this project.
 To install dependencies for this project, open a command line interface at the directory of the cloned repository, and run:
